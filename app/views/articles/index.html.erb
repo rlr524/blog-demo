@@ -1,0 +1,20 @@
+<h1>Hello, Madison!</h1>
+
+<!--This is a mix of HTML and ERB, embedded Ruby template syntax.  Note that
+comments in erb files follow standard HTML/CSS arrow commenting
+The <% %> tag means "evaluate the enclosed Ruby code"
+The <%= %> tag means "evaluate the enclosed Ruby code and output the value it returns
+Note the similarity to JQuery
+-->
+<ul>
+  <!-- This is saying get the contents of the @articles variable (in the articles_controller) which is storing
+  all articles, for each one, do this: output an article, so a basic for each loop in which "article" is the
+  iterator variable. We're using the built in link_to helper available when we create routes using the
+   ActionDispatch::Routing::Mapper::Resources method in the routes module.
+   -->
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article %>
+    </li>
+  <% end %>
+</ul>
